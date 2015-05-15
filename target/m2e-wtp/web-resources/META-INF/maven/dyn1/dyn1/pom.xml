@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>dyn1</groupId>
   <artifactId>dyn1</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>0.0.2-SNAPSHOT</version>
   <packaging>war</packaging>
   <dependencies>
     <dependency>
@@ -159,11 +159,6 @@
       <groupId>org.picketbox</groupId>
       <artifactId>picketbox-commons</artifactId>
       <version>1.0.0.final</version>
-    </dependency>
-    <dependency>
-      <groupId>org.picketbox</groupId>
-      <artifactId>picketbox-infinispan</artifactId>
-      <version>4.0.21.Final</version>
     </dependency>
     <dependency>
       <groupId>org.wildfly</groupId>
