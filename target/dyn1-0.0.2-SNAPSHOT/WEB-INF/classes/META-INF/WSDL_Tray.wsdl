@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:sercice.tray.modellar.d="service.tray.modellar.de" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="WSDL_Tray" targetNamespace="service.tray.modellar.de">
+  <wsdl:types>
+    <xsd:schema targetNamespace="service.tray.modellar.de">
+      <xsd:element name="getUserDrives">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="in" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getUserDrivesResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="drive" type="xsd:string" maxOccurs="unbounded" minOccurs="1"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getUserDrivesRequest"
+      	type="sercice.tray.modellar.d:LoginDetails">
+      </xsd:element>
+
+      <xsd:complexType name="LoginDetails">
+      	<xsd:sequence>
+      		<xsd:element name="username" type="xsd:string"
+      			maxOccurs="1" minOccurs="1">
+      		</xsd:element>
+      		<xsd:element name="passwort" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+      	</xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="getUserDrivesRequest">
+    <wsdl:part element="sercice.tray.modellar.d:getUserDrivesRequest" name="loginDetailsRequest"/>
+  </wsdl:message>
+  <wsdl:message name="getUserDrivesResponse">
+    <wsdl:part element="sercice.tray.modellar.d:getUserDrivesResponse" name="driveList"/>
+  </wsdl:message>
+  <wsdl:portType name="WSDL_Tray">
+    <wsdl:operation name="getUserDrives">
+      <wsdl:input message="sercice.tray.modellar.d:getUserDrivesRequest"/>
+      <wsdl:output message="sercice.tray.modellar.d:getUserDrivesResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WSDL_TraySOAP" type="sercice.tray.modellar.d:WSDL_Tray">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getUserDrives">
+      <soap:operation soapAction="service.tray.modellar.de/NewOperation"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WSDL_Tray">
+    <wsdl:port binding="sercice.tray.modellar.d:WSDL_TraySOAP" name="WSDL_TraySOAP">
+      <soap:address location="http://localhost:8080/traySOAP/WebserviceImpl?"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

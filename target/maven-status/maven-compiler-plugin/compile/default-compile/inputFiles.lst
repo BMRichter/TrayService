@@ -1,8 +1,8 @@
-/Users/RichterB/git/wsp/src/de/modellar/tray/service/GetUserDrives.java
-/Users/RichterB/git/wsp/src/de/modellar/tray/model/WSDLTray.java
-/Users/RichterB/git/wsp/src/de/modellar/tray/model/ObjectFactory.java
-/Users/RichterB/git/wsp/src/de/modellar/tray/model/WSDLTrayImpl.java
-/Users/RichterB/git/wsp/src/de/modellar/tray/model/WSDLTray_Service.java
-/Users/RichterB/git/wsp/src/de/modellar/tray/service/GetUserDrivesResponse.java
-/Users/RichterB/git/wsp/src/de/modellar/tray/service/LoginDetails.java
-/Users/RichterB/git/wsp/src/de/modellar/tray/model/package-info.java
+/Users/RichterB/git/WebServiceProjectTest/wsp/src/de/modellar/tray/model/WSDLTray_Service.java
+/Users/RichterB/git/WebServiceProjectTest/wsp/src/de/modellar/tray/model/ObjectFactory.java
+/Users/RichterB/git/WebServiceProjectTest/wsp/src/de/modellar/tray/service/GetUserDrivesResponse.java
+/Users/RichterB/git/WebServiceProjectTest/wsp/src/de/modellar/tray/service/GetUserDrives.java
+/Users/RichterB/git/WebServiceProjectTest/wsp/src/de/modellar/tray/service/LoginDetails.java
+/Users/RichterB/git/WebServiceProjectTest/wsp/src/de/modellar/tray/model/package-info.java
+/Users/RichterB/git/WebServiceProjectTest/wsp/src/de/modellar/tray/model/WSDLTray.java
+/Users/RichterB/git/WebServiceProjectTest/wsp/src/de/modellar/tray/model/WSDLTrayImpl.java
