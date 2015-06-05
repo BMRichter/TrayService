@@ -6,6 +6,8 @@
         <xsd:complexType>
           <xsd:sequence>
             <xsd:element name="in" type="xsd:string"/>
+            <xsd:element name="homeDriveName" type="xsd:string" default="home"/>
+          	<xsd:element name="driveName" type="xsd:string" default=""/>
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>

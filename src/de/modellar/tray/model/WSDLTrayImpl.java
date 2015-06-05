@@ -10,7 +10,11 @@ public class WSDLTrayImpl implements WSDLTray {
 	@Override
 	public GetUserDrivesResponse getUserDrives(LoginDetails loginDetailsRequest) {
 		GetUserDrivesResponse resp = new 	GetUserDrivesResponse();
-		resp.getDrive().add("benedikts neues drive");
+		resp.getDrive().add("benedikt drive");
+		resp.getDrive().add("blubb");
+		resp.getHomeDriveUrl(loginDetailsRequest);
+		resp.getDriveUrl(loginDetailsRequest,"blub");
+	
 		return resp;
 	}
 
