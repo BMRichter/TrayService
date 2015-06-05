@@ -5,6 +5,7 @@ package de.modellar.tray.service;
 import java.util.ArrayList;
 import java.util.List;
 
+
 //import javax.servlet.http.HttpServletRequest;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -13,6 +14,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 //import javax.xml.ws.WebServiceContext;
 //import javax.xml.ws.handler.MessageContext;
+
 
 import de.modellar.tray.model.WSDLTray_Service;
 
@@ -48,7 +50,7 @@ public class GetUserDrivesResponse {
 
 
     @XmlElement(required = true)
-    protected List<String> drive;
+    protected List<DriveType> drive;
   
 
     /**
@@ -73,41 +75,27 @@ public class GetUserDrivesResponse {
      * 
      * 
      */
-    public List<String> getDrive() {
+    
+    // MISSING IO Exeption
+    public List<DriveType> getDrive(LoginDetails loginData) {
         if (drive == null) {
-            drive = new ArrayList<String>();   
+            drive = new ArrayList<DriveType>();   
+            drive.add(this.getHomeDriveType(loginData));
         }
         
         return this.drive;
     }
     
-
-//	private WebServiceContext webContext;
-//	
-//	public void getDriveUrl() {
-//    	MessageContext mesContext = webContext.getMessageContext();
-//    	HttpServletRequest response = 
-//    			(HttpServletRequest)mesContext.get(MessageContext.SERVLET_REQUEST);
-//    	
-//    	String url = response.getServerName();
-//    	drive.add(url);
-//    	
-//	}
-    
-    public void getHomeDriveUrl(LoginDetails loginData){
-    	GetUserDrives homeDrive = new GetUserDrives(); 
+    public DriveType getHomeDriveType(LoginDetails loginData){
     	
-    	String url = WSDLTray_Service.SERVICE.getNamespaceURI()+ loginData.getUsername();
-    	url = url + homeDrive.getHomeDriveName();
+    	DriveType homeDriveType = new DriveType();
     	
-    	drive.add(url);
+    	String url = WSDLTray_Service.SERVICE.getNamespaceURI() + loginData.getUsername();
+    	url = url + "/" + homeDriveType.getDriveName();
+    	
+    	homeDriveType.setDriveURL(url);
+    	
+    	return homeDriveType;
     }
-    
-    public void getDriveUrl(LoginDetails loginData, String driveName){
-    	String url = WSDLTray_Service.SERVICE.getNamespaceURI()+ loginData.getUsername();
-    	url = url + "/" + driveName;
-    	drive.add(url);
-    }
-
    
 }

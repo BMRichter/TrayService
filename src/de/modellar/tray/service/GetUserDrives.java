@@ -29,7 +29,7 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "in", "homeDriveName", "driveName"
+    "in"
 })
 @XmlRootElement(name = "getUserDrives")
 public class GetUserDrives {
@@ -37,10 +37,6 @@ public class GetUserDrives {
 
     @XmlElement(required = true)
     protected String in;
-    @XmlElement(required = true)
-    public String homeDriveName = "/home";
-    @XmlElement(required = true)
-    public String driveName = "";
 
     /**
      * Ruft den Wert der in-Eigenschaft ab.
@@ -65,26 +61,5 @@ public class GetUserDrives {
     public void setIn(String value) {
         this.in = value;
     }
-    
-    /**Getter and Setter for created Drives
-     * */
-    public void setDriveName(String newDriveName){
-    	this.driveName = "/" + newDriveName;
-    }
-    
-    public String getDriveName(){
-    	return driveName;
-    }
-    
-  /**Getter and Setter for the Start Drive
-   * */  
-    public void setHomeDriveName(String newHomeDriveName){
-    	this.homeDriveName = "/" + newHomeDriveName;
-    }
-    
-    public String getHomeDriveName(){
-    	return homeDriveName;
-    }
-
 
 }

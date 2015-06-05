@@ -2,6 +2,7 @@
 /Users/RichterB/git/TrayService/wsp/src/de/modellar/tray/model/WSDLTray.java
 /Users/RichterB/git/TrayService/wsp/src/de/modellar/tray/service/GetUserDrivesResponse.java
 /Users/RichterB/git/TrayService/wsp/src/de/modellar/tray/model/WSDLTray_Service.java
+/Users/RichterB/git/TrayService/wsp/src/de/modellar/tray/service/DriveType.java
 /Users/RichterB/git/TrayService/wsp/src/de/modellar/tray/model/WSDLTrayImpl.java
 /Users/RichterB/git/TrayService/wsp/src/de/modellar/tray/model/package-info.java
 /Users/RichterB/git/TrayService/wsp/src/de/modellar/tray/service/LoginDetails.java
