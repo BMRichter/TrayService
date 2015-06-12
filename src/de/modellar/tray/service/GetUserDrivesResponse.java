@@ -116,10 +116,15 @@ public class GetUserDrivesResponse {
     	newDriveType.setDriveURL(url);
     	
     		if(drive == null){
+    			
     			drive = new ArrayList<DriveType>();
+    			drive.add(getHomeDriveType(loginData));
     			drive.add(newDriveType);
+    			
     		} else {
+    			
     			drive.add(newDriveType);
+    			
     		}
     	
     	}
