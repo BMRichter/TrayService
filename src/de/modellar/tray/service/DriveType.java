@@ -89,22 +89,5 @@ public class DriveType {
     public void setDriveName(String value) {
         this.driveName = value;
     }
-    
-//    public DriveType getDriveType(LoginDetails loginData, String driveName){
-//    	
-//    	DriveType homeDriveType = new DriveType();
-//    	homeDriveType.setDriveName(driveName);
-//    	
-//    	String url = WSDLTray_Service.SERVICE.getNamespaceURI() + loginData.getUsername();
-//    	url = url + "/" + this.getDriveName();
-//    	
-//    	homeDriveType.setDriveURL(url);
-//    	
-//    	return homeDriveType;
-//    	
-//    }
-    
-
-   
 
 }

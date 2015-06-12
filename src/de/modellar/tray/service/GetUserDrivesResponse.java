@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+
 //import javax.servlet.http.HttpServletRequest;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -14,6 +15,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 //import javax.xml.ws.WebServiceContext;
 //import javax.xml.ws.handler.MessageContext;
+import java.io.IOException;
+
 
 
 import de.modellar.tray.model.WSDLTray_Service;
@@ -76,12 +79,14 @@ public class GetUserDrivesResponse {
      * 
      */
     
-    // MISSING IO Exeption
+    // MISSING Exeption? Prüf das homeURL funktioniert / String
     public List<DriveType> getDrive(LoginDetails loginData) {
         if (drive == null) {
-            drive = new ArrayList<DriveType>();   
-            drive.add(this.getHomeDriveType(loginData));
-        }
+        		
+        		drive = new ArrayList<DriveType>();   
+        		drive.add(getHomeDriveType(loginData));
+        		
+        } 
         
         return this.drive;
     }
@@ -97,5 +102,18 @@ public class GetUserDrivesResponse {
     	
     	return homeDriveType;
     }
+    
+    //This Method doesn´t fit to this class
+    public void setNewDrive (LoginDetails loginData, String newDriveName){
+    	
+    	DriveType newDriveType = new DriveType();
+    	
+    	newDriveType.setDriveName(newDriveName);
+    	
+    	String url = WSDLTray_Service.SERVICE.getNamespaceURI() + loginData.getUsername();
+    	url = url + "/" + newDriveName;
+    	
+    	newDriveType.setDriveURL(url);
+    	}
    
 }
