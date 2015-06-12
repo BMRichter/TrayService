@@ -1,27 +1,16 @@
 
 package de.modellar.tray.service;
 
-//import java.security.Provider.Service;
 import java.util.ArrayList;
 import java.util.List;
 
-
-
-//import javax.servlet.http.HttpServletRequest;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
-//import javax.xml.ws.WebServiceContext;
-//import javax.xml.ws.handler.MessageContext;
-import java.io.IOException;
-
-
 
 import de.modellar.tray.model.WSDLTray_Service;
-
-
 
 
 /**
@@ -91,6 +80,9 @@ public class GetUserDrivesResponse {
         return this.drive;
     }
     
+    /**
+     * This Method create the new home Drive.
+     */
     public DriveType getHomeDriveType(LoginDetails loginData){
     	
     	DriveType homeDriveType = new DriveType();
@@ -103,7 +95,10 @@ public class GetUserDrivesResponse {
     	return homeDriveType;
     }
     
-    //This Method doesn´t fit to this class
+    /**
+     * This Method create a new DriveType and add it to List "drive" 
+     * If the "home" Drive isn´t crated jet it will be created too
+     */
     public void setNewDrive (LoginDetails loginData, String newDriveName){
     	
     	DriveType newDriveType = new DriveType();

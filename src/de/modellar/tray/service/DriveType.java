@@ -6,8 +6,6 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
-import de.modellar.tray.model.WSDLTray_Service;
-
 
 /**
  * <p>Java-Klasse für DriveType complex type.
@@ -38,7 +36,6 @@ public class DriveType {
 
     @XmlElement(required = true)
     protected String driveURL;
-    /**TODO: Convert dirveName String to list !!!!!*/
     @XmlElement(required = true)
     protected String driveName = "home";
 
