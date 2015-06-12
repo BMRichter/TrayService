@@ -11,8 +11,8 @@ public class WSDLTrayImpl implements WSDLTray {
 	public GetUserDrivesResponse getUserDrives(LoginDetails loginDetailsRequest) {
 		GetUserDrivesResponse resp = new 	GetUserDrivesResponse();
 		
-		//resp.setNewDrive(loginDetailsRequest, "home");
-		//resp.setNewDrive(loginDetailsRequest, "blub");
+		resp.setNewDrive(loginDetailsRequest, "blubber");
+		resp.setNewDrive(loginDetailsRequest, "blub");
 		resp.getDrive(loginDetailsRequest);
 		
 	

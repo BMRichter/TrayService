@@ -114,6 +114,14 @@ public class GetUserDrivesResponse {
     	url = url + "/" + newDriveName;
     	
     	newDriveType.setDriveURL(url);
+    	
+    		if(drive == null){
+    			drive = new ArrayList<DriveType>();
+    			drive.add(newDriveType);
+    		} else {
+    			drive.add(newDriveType);
+    		}
+    	
     	}
    
 }
