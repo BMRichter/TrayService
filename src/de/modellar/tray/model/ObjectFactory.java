@@ -9,7 +9,8 @@ import javax.xml.namespace.QName;
 import de.modellar.tray.service.GetUserDrives;
 import de.modellar.tray.service.GetUserDrivesResponse;
 import de.modellar.tray.service.LoginDetails;
-
+import de.modellar.tray.service.CurrentLocation;
+import de.modellar.tray.service.GetFolderPathResponse;
 
 /**
  * This object contains factory methods for each 
@@ -29,6 +30,7 @@ import de.modellar.tray.service.LoginDetails;
 public class ObjectFactory {
 
     private final static QName _GetUserDrivesRequest_QNAME = new QName("http://localhost:8080/myService/", "getUserDrivesRequest");
+    private final static QName _GetFolderPathRequest_QNAME = new QName("http://localhost:8080/myService/", "getFolderPathRequest");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: de.modellar.tray.service
@@ -70,4 +72,26 @@ public class ObjectFactory {
         return new JAXBElement<LoginDetails>(_GetUserDrivesRequest_QNAME, LoginDetails.class, null, value);
     }
 
+    
+    /**
+     * Create an instance of {@link CurrentLocation}
+     */
+    public CurrentLocation createCurrentLocation(){
+    	return new CurrentLocation();
+    }
+    
+    /**
+     * Create an instance of {@link GetFolderPathResponse}
+     */
+    public GetFolderPathResponse createCurrentLocationResponse(){
+    	return new GetFolderPathResponse();
+    }
+    
+    /**
+     * Create an instance of {@jink JAXBElement}{@code <}{@link CurrentLocation}{@code >}
+     */
+    @XmlElementDecl(namespace = "service.tray.modellar.de", name = "getFolderPathRequest")
+    public JAXBElement<CurrentLocation> createGetFolderPathRequest(CurrentLocation floc){
+    	return new JAXBElement<CurrentLocation>(_GetFolderPathRequest_QNAME, CurrentLocation.class, null, floc);
+    }
 }

@@ -33,9 +33,9 @@ import de.modellar.tray.model.WSDLTray_Service;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {
+@XmlType(name = "GetUserDriveResponse", propOrder = {
     "drive"
-})
+	})
 @XmlRootElement(name = "getUserDrivesResponse")
 public class GetUserDrivesResponse {
 	
@@ -68,7 +68,11 @@ public class GetUserDrivesResponse {
      * 
      */
     
-    // MISSING Exeption? Prüf das homeURL funktioniert / String
+    /**
+     * This Method creat/return the Drive Objekt
+     * @param loginData
+     * @return drive
+     */
     public List<DriveType> getDrive(LoginDetails loginData) {
         if (drive == null) {
         		
@@ -81,7 +85,9 @@ public class GetUserDrivesResponse {
     }
     
     /**
-     * This Method create the new home Drive.
+     * This Method create/return the new home Drive.
+     * @param LoginDetails
+     * @return DriveType
      */
     public DriveType getHomeDriveType(LoginDetails loginData){
     	
@@ -98,8 +104,9 @@ public class GetUserDrivesResponse {
     /**
      * This Method create a new DriveType and add it to List "drive" 
      * If the "home" Drive isn´t crated jet it will be created too
+     * @param LoginDetails , String(newDriveName)
      */
-    public void setNewDrive (LoginDetails loginData, String newDriveName){
+    public void addNewDrive (LoginDetails loginData, String newDriveName){
     	
     	DriveType newDriveType = new DriveType();
     	

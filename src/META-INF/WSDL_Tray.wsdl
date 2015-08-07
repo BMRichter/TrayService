@@ -35,7 +35,45 @@
       		<xsd:element name="driveName" type="xsd:string" maxOccurs="1" minOccurs="1" default="home"></xsd:element>
       	</xsd:sequence>
       </xsd:complexType>
-    </xsd:schema>
+      <xsd:element name="getFolderPathRequest" type="sercice.tray.modellar.d:CurrentLocation">
+      </xsd:element>
+      <xsd:element name="NewOperationResponse">
+      	<xsd:complexType>
+      		<xsd:sequence>
+      			<xsd:element name="out" type="xsd:string"></xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getFolderPathResponse" >
+      	<xsd:complexType>
+      		<xsd:sequence>
+      			<xsd:element name="folderURL" type="sercice.tray.modellar.d:FolderPath" maxOccurs="unbounded" minOccurs="0"/>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      
+      <xsd:complexType name="CurrentLocation">
+      	<xsd:sequence>
+      		<xsd:element name="currentDrive" type="xsd:string"
+      			maxOccurs="1" minOccurs="1">
+      		</xsd:element>
+      		<xsd:element name="activeFolder" type="xsd:string" maxOccurs="1" minOccurs="0"></xsd:element>
+      	</xsd:sequence>
+      </xsd:complexType>
+    
+      <xsd:complexType name="FolderPath">
+      	<xsd:sequence>
+      		<xsd:element name="folderURL" type="sercice.tray.modellar.d:folderURLType" maxOccurs="unbounded" minOccurs="0"></xsd:element>
+      	</xsd:sequence>
+      </xsd:complexType>
+    
+      <xsd:complexType name="folderURLType">
+      	<xsd:sequence>
+      		<xsd:element name="folderName" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+      	</xsd:sequence>
+      </xsd:complexType>
+            
+        </xsd:schema>
   </wsdl:types>
   <wsdl:message name="getUserDrivesRequest">
     <wsdl:part element="sercice.tray.modellar.d:getUserDrivesRequest" name="loginDetailsRequest"/>
@@ -43,10 +81,29 @@
   <wsdl:message name="getUserDrivesResponse">
     <wsdl:part element="sercice.tray.modellar.d:getUserDrivesResponse" name="driveList"/>
   </wsdl:message>
+  <wsdl:message name="getFolderPathRequest">
+  	<wsdl:part name="currentLocationRequest"
+  		element="sercice.tray.modellar.d:getFolderPathRequest">
+  	</wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="NewOperationResponse">
+  	<wsdl:part name="parameters" element="sercice.tray.modellar.d:NewOperationResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getFolderPathResponse">
+  	<wsdl:part element="sercice.tray.modellar.d:getFolderPathResponse" name="folderPath"></wsdl:part>
+  </wsdl:message>
   <wsdl:portType name="WSDL_Tray">
     <wsdl:operation name="getUserDrives">
       <wsdl:input message="sercice.tray.modellar.d:getUserDrivesRequest"/>
       <wsdl:output message="sercice.tray.modellar.d:getUserDrivesResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="getFolderPath">
+    	<wsdl:input
+    		message="sercice.tray.modellar.d:getFolderPathRequest">
+    	</wsdl:input>
+    	<wsdl:output
+    		message="sercice.tray.modellar.d:getFolderPathResponse">
+    	</wsdl:output>
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="WSDL_TraySOAP" type="sercice.tray.modellar.d:WSDL_Tray">
