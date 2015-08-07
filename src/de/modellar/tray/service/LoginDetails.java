@@ -31,7 +31,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "LoginDetails", propOrder = {
     "username",
     "passwort"
-})
+	})
 public class LoginDetails {
 
     @XmlElement(required = true)

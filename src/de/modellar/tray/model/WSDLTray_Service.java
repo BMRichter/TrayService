@@ -31,7 +31,7 @@ public class WSDLTray_Service extends Service {
         } catch (MalformedURLException e) {
             java.util.logging.Logger.getLogger(WSDLTray_Service.class.getName())
                 .log(java.util.logging.Level.INFO, 
-                     "Can not initialize the default wsdl from {0}", "file:/Users/benediktrichter/Desktop/SoapUI_Wildfly/wildfly-8.2.0.Final/bin/../../WSDL_Tray.wsdl");
+                     "Can not initialize the default wsdl from {0}", "/META-INF/WSDL_Tray.wsdl");
         }
         WSDL_LOCATION = url;
     }
@@ -82,7 +82,8 @@ public class WSDLTray_Service extends Service {
     /**
      * 
      * @param features
-     *     A list of {@link javax.xml.ws.WebServiceFeature} to configure on the proxy.  Supported features not in the <code>features</code> parameter will have their default values.
+     *     A list of {@link javax.xml.ws.WebServiceFeature} to configure on the proxy.  
+     *     	Supported features not in the <code>features</code> parameter will have their default values.
      * @return
      *     returns WSDLTray
      */

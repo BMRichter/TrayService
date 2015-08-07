@@ -3,11 +3,14 @@ package de.modellar.tray.service;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
+
+import de.modellar.tray.model.WSDLTray_Service;
 
 
 /**
@@ -30,14 +33,17 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {
+@XmlType(name = "GetUserDriveResponse", propOrder = {
     "drive"
-})
+	})
 @XmlRootElement(name = "getUserDrivesResponse")
 public class GetUserDrivesResponse {
+	
+
 
     @XmlElement(required = true)
-    protected List<String> drive;
+    protected List<DriveType> drive;
+  
 
     /**
      * Gets the value of the drive property.
@@ -61,11 +67,68 @@ public class GetUserDrivesResponse {
      * 
      * 
      */
-    public List<String> getDrive() {
+    
+    /**
+     * This Method creat/return the Drive Objekt
+     * @param loginData
+     * @return drive
+     */
+    public List<DriveType> getDrive(LoginDetails loginData) {
         if (drive == null) {
-            drive = new ArrayList<String>();
-        }
+        		
+        		drive = new ArrayList<DriveType>();   
+        		drive.add(getHomeDriveType(loginData));
+        		
+        } 
+        
         return this.drive;
     }
-
+    
+    /**
+     * This Method create/return the new home Drive.
+     * @param LoginDetails
+     * @return DriveType
+     */
+    public DriveType getHomeDriveType(LoginDetails loginData){
+    	
+    	DriveType homeDriveType = new DriveType();
+    	
+    	String url = WSDLTray_Service.SERVICE.getNamespaceURI() + loginData.getUsername();
+    	url = url + "/" + homeDriveType.getDriveName();
+    	
+    	homeDriveType.setDriveURL(url);
+    	
+    	return homeDriveType;
+    }
+    
+    /**
+     * This Method create a new DriveType and add it to List "drive" 
+     * If the "home" Drive isn´t crated jet it will be created too
+     * @param LoginDetails , String(newDriveName)
+     */
+    public void addNewDrive (LoginDetails loginData, String newDriveName){
+    	
+    	DriveType newDriveType = new DriveType();
+    	
+    	newDriveType.setDriveName(newDriveName);
+    	
+    	String url = WSDLTray_Service.SERVICE.getNamespaceURI() + loginData.getUsername();
+    	url = url + "/" + newDriveName;
+    	
+    	newDriveType.setDriveURL(url);
+    	
+    		if(drive == null){
+    			
+    			drive = new ArrayList<DriveType>();
+    			drive.add(getHomeDriveType(loginData));
+    			drive.add(newDriveType);
+    			
+    		} else {
+    			
+    			drive.add(newDriveType);
+    			
+    		}
+    	
+    	}
+   
 }
